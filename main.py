@@ -3,19 +3,19 @@
 # баланс.
 class ElectronicWallet:
     def __init__(self):
-        self.balance = 0
+        self.__balance = 0
 
     def add_money(self, amount):
-        self.balance += amount
+        self.__balance += amount
 
     def remove_money(self, amount):
-        if self.balance >= amount:
-            self.balance -= amount
+        if self.__balance >= amount:
+            self.__balance -= amount
         else:
             print("Недостатньо коштів.")
 
     def get_balance(self):
-        return self.balance
+        return self.__balance
 
 wallet = ElectronicWallet()
 print("Надійшли кошти:")
