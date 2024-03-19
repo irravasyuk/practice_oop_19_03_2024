@@ -1,40 +1,34 @@
-# Завдання 1
-# Створіть клас "Користувач" з атрибутами "ім'я", "вік" та
-# "email". Застосуйте інкапсуляцію, щоб забезпечити, що ці
-# дані можна отримати лише через методи класу.
-class User:
-    def __init__(self, name, age, email):
-        self.__name = name
-        self.__age = age
-        self.__email = email
+# Створіть клас "Комп'ютер", який має зберігати
+# інформацію про процесор, ОЗУ та відеокарту. Застосуйте
+# інкапсуляцію для захисту цих даних від змін
+class Computer:
+    def __init__(self, processor, ram, gpu):
+        self.__processor = processor
+        self.__ram = ram
+        self.__gpu = gpu
 
-    def get_name(self):
-        return self.__name
+    def get_processor(self):
+        return self.__processor
 
-    def set_name(self, name):
-        self.__name = name
+    def get_ram(self):
+        return self.__ram
 
-    def get_age(self):
-        return self.__age
+    def get_gpu(self):
+        return self.__gpu
 
-    def set_age(self, age):
-        self.__age = age
+    def set_processor(self, processor):
+        self.__processor = processor
 
-    def get_email(self):
-        return self.__email
+    def set_ram(self, ram):
+        self.__ram = ram
 
-    def set_email(self, email):
-        self.__email = email
+    def set_gpu(self, gpu):
+        self.__gpu = gpu
 
-    def get_full(self):
-        return f"Name:{self.__name}, Age:{self.__age}, Email:{self.__email}"
+mycomputer = Computer("Core i9 13900K", "32GB", "NVIDIA GeForce RTX 3080 10GB GDDR6X")
+print("Процесор:", mycomputer.get_processor())
+print("ОЗУ:", mycomputer.get_ram())
+print("Відеокарта:", mycomputer.get_gpu())
 
-
-user = User("Вікторія", 19, "viktoria@gmail.com")
-print("Інформація про користувача: ", user.get_full())
-
-print("Змінюємо інформацію:")
-user.set_name("Юлія")
-user.set_age(22)
-user.set_email("julia@gmail.com")
-print(f"Оновлена інформація про користувача: {user.get_full()}")
+mycomputer.set_ram("16GB")
+print("Оновлена ОЗУ:", mycomputer.get_ram())
