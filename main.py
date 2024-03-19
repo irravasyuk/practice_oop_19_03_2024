@@ -1,40 +1,21 @@
-# Завдання 1
-# Створіть клас "Користувач" з атрибутами "ім'я", "вік" та
-# "email". Застосуйте інкапсуляцію, щоб забезпечити, що ці
-# дані можна отримати лише через методи класу.
-class User:
-    def __init__(self, name, age, email):
-        self.__name = name
-        self.__age = age
-        self.__email = email
+# Завдання 2
+# Реалізуйте клас "Кошик для покупок" з можливістю
+# додавання товарів та підрахунку загальної вартості.
+# Застосуйте інкапсуляцію для забезпечення правильності
+# обробки даних.
+class ShoppingCart:
+    def __init__(self):
+        self.__items = []
+    def add_item(self, name, price):
+        self.__items.append((name, price))
 
-    def get_name(self):
-        return self.__name
+    def total_price(self):
+        total = 0
+        for _, price in self.__items:
+            total += price
+        return total
 
-    def set_name(self, name):
-        self.__name = name
-
-    def get_age(self):
-        return self.__age
-
-    def set_age(self, age):
-        self.__age = age
-
-    def get_email(self):
-        return self.__email
-
-    def set_email(self, email):
-        self.__email = email
-
-    def get_full(self):
-        return f"Name:{self.__name}, Age:{self.__age}, Email:{self.__email}"
-
-
-user = User("Вікторія", 19, "viktoria@gmail.com")
-print("Інформація про користувача: ", user.get_full())
-
-print("Змінюємо інформацію:")
-user.set_name("Юлія")
-user.set_age(22)
-user.set_email("julia@gmail.com")
-print(f"Оновлена інформація про користувача: {user.get_full()}")
+cart = ShoppingCart()
+cart.add_item("Апельсин", 20)
+cart.add_item("Абрикос", 10)
+print("Загальна вартість:", cart.total_price())
